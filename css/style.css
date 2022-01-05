@@ -1,0 +1,64 @@
+#header{
+  display: flex;
+  justify-content: center;
+  border-bottom:solid black;
+}
+
+.title {
+  color: black;
+  margin: 10px 10% 10px 10%;
+}
+
+body {
+  background-color: white
+}
+
+.container{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.bord {
+  flex: 1;
+  border: 2px solid black;
+}
+
+.bord1{
+  background-color: pink;
+  margin-right: 10px;
+}
+
+.bord2{
+  background-color: skyblue;
+}
+
+.bord3{
+  background-color: yellowgreen;
+  margin-left: 10px;
+}
+
+.bordheader{
+  border-bottom:solid black;
+}
+
+.bordtitle{
+  margin: 0;
+  
+}
+
+.tasklist{
+  margin-top: 5px;
+}
+
+.bordtitle:hover {
+  color: red;
+}
+
+.inline{
+  display: inline-block;
+}
+
+.block{
+  display: block;
+}
