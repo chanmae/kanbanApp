@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="../css/style.css" />
-    <title>KanbanApp</title>
-  </head>
-  <body>
-    <header id="header">
-      <h1 class="title">Kanban App</h1>
-    </header>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <title>KanbanApp</title>
+</head>
+
+<body>
+  <div id="app">
+    <top-header v-bind:title="headerTitle"></top-header>
     <main>
       <div class="container">
         <!-- TODOリスト -->
         <section class="bord bord1">
-          <header class="bordheader">
-            <h2 class="bordtitle">TODO</h2>
-          </header>
+          <sub-header v-bind:sub-title="todoHeaderTitle"></sub-header>
           <div id="todolist" class="tasklist">
           </div>
-          <div>
-            <input type="button" value="タスク追加" id="addtask" onclick="addtask()">
-          </div>
+          <add-todo-button></add-todo-button>
         </section>
+        <!-- ここまでTODOリスト -->
         <!-- WIPリスト -->
         <section class="bord bord2">
-          <header class="bordheader">
-            <h2 class="bordtitle">WIP</h2>
-          </header>
+          <sub-header v-bind:sub-title="wipHeaderTitle"></sub-header>
           <div id="wiplist" class="tasklist">
           </div>
         </section>
+        <!-- ここまでWIPリスト -->
         <!-- DONEリスト -->
         <section class="bord bord3">
-          <header class="bordheader">
-            <h2 class="bordtitle">DONE</h2>
-          </header>
+          <sub-header v-bind:sub-title="doneHeaderTitle"></sub-header>
           <div id="donelist" class="tasklist">
           </div>
         </section>
+        <!-- ここまでDONEリスト -->
       </div>
     </main>
     <footer>
     </footer>
-    <script src="../js/kanbanApp.js"></script>
-  </body>
+  </div>
+
+  <!-- javascript挿入 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="../js/kanbanApp.js"></script>
+</body>
+
 </html>
