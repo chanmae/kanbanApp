@@ -117,13 +117,13 @@ const addTodoButton = Vue.component('add-todo-button', {
 /* Vueインスタンス定義 */
 const vm = new Vue({
     el: '#app',
-    components:{
-        'top-header':topHeader,
-        'sub-header':subHeader,
-        'input-form-todo':inputFormTodo,
-        'input-form-wip':inputFormWip,
-        'input-form-done':inputFormDone,
-        'add-todo-button':addTodoButton,                
+    components: {
+        'top-header': topHeader,
+        'sub-header': subHeader,
+        'input-form-todo': inputFormTodo,
+        'input-form-wip': inputFormWip,
+        'input-form-done': inputFormDone,
+        'add-todo-button': addTodoButton,
     },
     data: {
         headerTitle: 'Kanban App',
@@ -175,20 +175,25 @@ function addtodo() {
 戻り値：なし
 */
 function addwip(event) {
-    // WIPリスト取得
-    const wiplist = document.getElementById("wiplist");
     // テキストボックスの値を取得
     const todotext = event.target.previousElementSibling.value;
-    // 入力フォーム（WIP）コンポーネント生成
-    const inputFormComponent = Vue.extend(inputFormWip);
-    const instace = new inputFormComponent();
-    // コンポーネントにテキストを設定
-    instace.wiptext = todotext;
-    // Vueコンポーネントのマウント
-    instace.$mount();
-    wiplist.append(instace.$el);
-    // タスク削除
-    deletetask(event)
+    // 入力チェック
+    if (todotext) {
+        // WIPリスト取得
+        const wiplist = document.getElementById("wiplist");
+        // 入力フォーム（WIP）コンポーネント生成
+        const inputFormComponent = Vue.extend(inputFormWip);
+        const instace = new inputFormComponent();
+        // コンポーネントにテキストを設定
+        instace.wiptext = todotext;
+        // Vueコンポーネントのマウント
+        instace.$mount();
+        wiplist.append(instace.$el);
+        // タスク削除
+        deletetask(event)
+    } else {
+        alert("TODOを入力してください。")
+    }
 }
 
 /*
